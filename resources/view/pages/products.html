@@ -1,0 +1,101 @@
+<h1>Produtos</h1>
+
+<section>
+    <div class="row my-4">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modal-new-product">Novo Produto
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modal-new-type">Novo Tipo
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Imposto</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {{items}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section>
+{{pagination}}
+</section>
+
+<div class="modal" id="modal-new-product" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastrar produto.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-new-product" action="{{URL}}/produtos?page=1" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tax" class="form-label">Imposto</label>
+                        <input type="text" class="form-control" id="tax" name="tax">
+                    </div>
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Tipo</label>
+                        <select class="form-select" id="type" name="type">
+                            <option selected>Selecione o tipo do produto.</option>
+                            {{options}}
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" form="form-new-product" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-new-type" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastrar tipo de produto.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-new-type" action="{{URL}}/tipos" method="post">
+                    <div class="mb-3">
+                        <label for="name-type" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name-type" name="name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" form="form-new-type" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

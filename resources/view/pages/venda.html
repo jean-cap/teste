@@ -1,0 +1,73 @@
+<h1>Venda</h1>
+
+<section>
+    <div class="row my-4">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modal-add-product">Adicionar produto
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Total</th>
+        <th scope="col">Total Impostos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="card">
+    <div class="card-body">
+        Total: <br>
+        Impostos:
+    </div>
+</div>
+
+<div class="modal" id="modal-add-product" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adicionar produto.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-add-product">
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Escolha o produto</option>
+                            {{product_list_options}}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="qtd" class="form-label">Quantidade</label>
+                        <input type="number" class="form-control" id="qtd" name="qtd">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" form="form-add-product" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    </div>
+</div>
